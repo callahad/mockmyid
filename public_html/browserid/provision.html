@@ -4,7 +4,13 @@
     <title>MockMyID Provisioning</title>
   </head>
   <body>
-    <script src="https://login.persona.org/provisioning_api.js"></script>
+    <script>
+      var persona_server = "https://login.persona.org/";
+      if (document.referrer) {
+        persona_server = /^.*?:\/\/[^/]+\//.exec(document.referrer);
+      }
+      document.write('<script src="' + persona_server + 'provisioning_api.js"></scr' + 'ipt>');
+    </script>
     <script src="vepbundle.js"></script>
     <script type="text/javascript">
       navigator.id.beginProvisioning(function(email, cert_duration_s) {
