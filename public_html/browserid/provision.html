@@ -41,7 +41,7 @@
 
           jwcrypto.cert.sign(
             {publicKey: pubkey, principal: {email: email}},
-            {issuer: 'mockmyid.com', issuedAt: now.valueOf(), expiresAt: expiration},
+            {issuer: window.location.host, issuedAt: now.valueOf(), expiresAt: expiration},
             {},
             secKey,
             function(err, signedObject) {
