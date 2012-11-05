@@ -39,6 +39,11 @@
           // https://developer.mozilla.org/en-US/docs/DOM/window.crypto.getRandomValues
           jwcrypto.addEntropy("High-security random data.");
 
+          // Temporary hack for Bug 2680
+          if (email === "bug2680@mockmyid.com") {
+            email = "whoops@mockmyid.com";
+          }
+
           jwcrypto.cert.sign(
             {publicKey: pubkey, principal: {email: email}},
             {issuer: window.location.host, issuedAt: now.valueOf(), expiresAt: expiration},
