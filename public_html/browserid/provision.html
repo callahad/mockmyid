@@ -31,8 +31,10 @@
 
           var pubkey = jwcrypto.loadPublicKeyFromObject(pubkey);
 
+          var PADDING_SECONDS = 60;
           var now = new Date();
-          var expiration = now.valueOf() + (cert_duration_s * 1000);
+          now.setSeconds(now.getSeconds()-PADDING_SECONDS);
+          var expiration = now.valueOf() + (cert_duration_s * 1000) + (PADDING_SECONDS * 1000);
 
           // NOTE: DO NOT EVER USE A STATIC SEED FOR A RANDOM NUMBER GENERATOR
           // Seed the RNG for browsers without window.crypto.getRandomValues
