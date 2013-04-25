@@ -28,7 +28,10 @@
 
           var pubkey = jwcrypto.loadPublicKeyFromObject(JSON.parse(pubkey));
 
+          // Artificially skew times into the past.
+          // Fixes issues with client clocks being slightly off.
           var now = new Date();
+          now.setSeconds(now.getSeconds() - 120);
           var expiration = now.valueOf() + (cert_duration_s * 1000);
 
           // NOTE: DO NOT EVER USE A STATIC SEED FOR A RANDOM NUMBER GENERATOR
