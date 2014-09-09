@@ -1,2 +1,5 @@
-publish:
-	rsync -a --delete-after public_html/ mockmyid.com:/srv/www/com.mockmyid
+build:
+	docker build -t callahad/mockmyid .
+
+run:
+	docker run --detach=true --publish=55001:80 --name "mockmyid.com" callahad/mockmyid
