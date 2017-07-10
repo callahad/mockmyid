@@ -1,0 +1,8 @@
+:80
+
+log / stdout {combined}
+errors
+
+root public_html
+
+header /.well-known/browserid Content-Type application/json

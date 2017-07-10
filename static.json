@@ -1,7 +1,0 @@
-{
-  "headers": {
-    "/.well-known/browserid": {
-      "Content-Type": "application/json"
-    }
-  }
-}
