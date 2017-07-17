@@ -3,6 +3,8 @@
 log / stdout {combined}
 errors
 
+gzip
+
 root public_html
 
 header /.well-known/browserid Content-Type application/json
