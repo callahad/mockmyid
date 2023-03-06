@@ -1,0 +1,4 @@
+# For deployment to Cloudflare Pages
+
+/.well-known/browserid
+  Content-Type: application/json
